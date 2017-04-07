@@ -1,12 +1,14 @@
-# The Official raywenderlich.com Swift Style Guide.
-### Updated for Swift 3
+# iOS Project / Swift Style Guide.
+### Updated for Swift 3. This style guide will be mandatory for all new apps created with Xcode 10.3 and newer.
 
-This style guide is different from others you may see, because the focus is centered on readability for print and the web. We created this style guide to keep the code in our books, tutorials, and starter kits nice and consistent — even though we have many different authors working on the books.
+Adapted from [The official Swift style guide for raywenderlich.com](https://github.com/raywenderlich/swift-style-guide)
 
 Our overarching goals are clarity, consistency and brevity, in that order.
 
 ## Table of Contents
 
+* [Project Setup](#project-setup)
+  * [Organization and Bundle Identifier](#organization-and-bundle-identifier)
 * [Correctness](#correctness)
 * [Naming](#naming)
   * [Prose](#prose)
@@ -44,15 +46,26 @@ Our overarching goals are clarity, consistency and brevity, in that order.
   * [Failing Guards](#failing-guards)
 * [Semicolons](#semicolons)
 * [Parentheses](#parentheses)
-* [Organization and Bundle Identifier](#organization-and-bundle-identifier)
-* [Copyright Statement](#copyright-statement)
 * [Smiley Face](#smiley-face)
+* [Open Source Resources](#open-source-resources)
 * [References](#references)
 
 
+## Project Setup
+
+### Organization and Bundle Identifier
+
+Where an Xcode project is involved, the organization should be set to `{{Customer Name}} / Koder, Inc.` Set the Bundle Identifier set to `{{com/io/ai}}.{{customer host name}}.AppName` where `AppName` is the name of the app project.
+
+Make sure to use the customer's Organization or...
+
+If the customer does not have an Apple Developer account set the temporary Bundle Identifier to `com.koder.AppName` and use our Koder developer account for now.
+
+  ![Xcode Project settings](screens/project_settings.png)
+
 ## Correctness
 
-Strive to make your code compile without warnings. This rule informs many style decisions such as using `#selector` types instead of string literals.
+Strive to make your code compile without warnings. In order to encourage this we highly recommend that you set `Treat warnings as errors = true` in Build Settings. This rule informs many style decisions such as using `#selector` types instead of string literals.
 
 ## Naming
 
@@ -894,41 +907,6 @@ In larger expressions, optional parentheses can sometimes make code read more cl
 let playerMark = (player == current ? "X" : "O")
 ```
 
-## Organization and Bundle Identifier
-
-Where an Xcode project is involved, the organization should be set to `Ray Wenderlich` and the Bundle Identifier set to `com.razeware.TutorialName` where `TutorialName` is the name of the tutorial project.
-
-  ![Xcode Project settings](screens/project_settings.png)
-  
-## Copyright Statement
-
-The following copyright statement should be included at the top of every source
-file:
-
-```swift 
-    /**
-     * Copyright (c) 2017 Razeware LLC
-     *
-     * Permission is hereby granted, free of charge, to any person obtaining a copy
-     * of this software and associated documentation files (the "Software"), to deal
-     * in the Software without restriction, including without limitation the rights
-     * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-     * copies of the Software, and to permit persons to whom the Software is
-     * furnished to do so, subject to the following conditions:
-     *
-     * The above copyright notice and this permission notice shall be included in
-     * all copies or substantial portions of the Software.
-     *
-     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-     * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-     * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-     * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-     * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-     * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-     * THE SOFTWARE.
-     */
-```
-
 ## Smiley Face
 
 Smiley faces are a very prominent style feature of the [raywenderlich.com](https://www.raywenderlich.com/) site! It is very important to have the correct smile signifying the immense amount of happiness and excitement for the coding topic. The closing square bracket `]` is used because it represents the largest smile able to be captured using ASCII art. A closing parenthesis `)` creates a half-hearted smile, and thus is not preferred.
@@ -942,6 +920,32 @@ Smiley faces are a very prominent style feature of the [raywenderlich.com](https
 ```
 :)
 ```  
+
+
+## Open Source Resources
+
+Several open source resources are listed below. 
+
+### Networking
+  [Networking](https://github.com/3lvis/Networking): Simple HTTP Networking in Swift a NSURLSession wrapper with image caching support. This will work very well for 90% of our projects. Image cache is nice for simple apps.
+
+  [Alamofire](https://github.com/Alamofire/Alamofire): Alamofire is an HTTP networking library written in Swift, from the creator of AFNetworking. Alamofire is pretty complex. Really the only benifit it overs over Networking is the ability to upload data from a file stream. So use it if you plan on doing large or bulk image or video uploads.
+
+### JSON Parsing 
+
+[Gloss](https://github.com/hkellaway/Gloss): Simple JSON parsing. `Glossy` protocol that a `struct` can conform to. Includes as `JSON` class that is codable and decodable which make caching these objects to the file system very easy. 
+
+### Secure Storage
+
+[Valet](https://github.com/square/Valet): Makes writing to the Keychain extremely simple. We must save API access tokens to the keychain so why not use this.
+
+### Forms
+
+[Eureka](https://github.com/xmartlabs/Eureka): Use this if the UI is going to contain a bunch of forms. 
+
+### Image Cropping 
+
+[RSKImageCropper](https://github.com/ruslanskorb/RSKImageCropper): An image cropper for iOS like in the Contacts app with support for landscape orientation. This is great when allowing the user to select their profile photo.
 
 ## References
 
